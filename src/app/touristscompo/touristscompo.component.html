@@ -1,0 +1,25 @@
+<h3 class="text-primary">Tourists</h3>
+<table class="table table-hover border border-primary">
+    <thead>
+    <tr class="text-warning">
+        <th scope="col">id</th>
+        <th scope="col">firstname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">gender</th>
+        <th scope="col">age</th>
+        <th scope="col">fromPlace</th>
+        <th scope="col">numberofDaysVisits</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor = "let tour of tourist" class="text-danger">
+        <td scope="row">{{tour.id}}</td>
+        <td>{{tour.firstname}}</td>
+        <td>{{tour.lastname}}</td>
+        <td>{{tour.gender}}</td>
+        <td>{{tour.age}}</td>
+        <td>{{tour.fromPlace}}</td>
+        <td>{{tour.numberofDaysVisits}}</td>
+    </tr>
+</tbody>
+</table>

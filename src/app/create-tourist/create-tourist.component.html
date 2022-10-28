@@ -1,0 +1,94 @@
+<form class="border border-primary p-3"#registerform="ngForm" name="formname" (ngSubmit)=" onsaveTourist()">
+    <div class="row g-0">
+    <div class="col text-center p-2 mb-3 bg-primary text-white">
+<span class="fs-3">RegisterTourist</span>
+</div>
+</div>
+<div class="row">
+    <div class="col mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input type="text" class="form-control" id="id"  #idn="ngModel" placeholder="Id"
+    [(ngModel)] ="tourist.id" name="id" id="id" maxlength="4" required (keypress)="allowOnlyNumeric($event)">
+    <div class="error-msg" *ngIf="(idn.touched || registerform.submitted) && idn.errors?.required">
+       Id required
+ </div>
+</div>
+</div>
+<div class="row">
+    <div class="col mb-3">
+    <label for="name" class="form-label">FirstName</label>
+    <input type="text" class="form-control" id="firstname" placeholder="FirstName"  (keypress)="allowOnlyAlphabet($event)"
+    [(ngModel)] ="tourist.firstname" ng-model="name" name="firstname"  #name="ngModel" required maxlength="15">
+    <div class="error-msg" *ngIf="(name.touched || registerform.submitted) &&  name.errors?.required">
+        FastName required
+ </div>
+</div>
+</div>
+<div class="row">
+    <div class="col mb-3">
+    <label for="name" class="form-label">LastName</label>
+    <input type="text" class="form-control" id="lname"  #lname="ngModel" (keypress)="allowOnlyAlphabet($event)"
+    [(ngModel)] ="tourist.lastname"  name="lname" required maxlength="12" placeholder="LastName">
+    <div class="error-msg" *ngIf="(lname.touched || registerform.submitted) &&  lname.errors?.required">
+        LastName required
+ </div>
+</div>
+    </div>
+    <div class="row">
+    <div class="col ps-3 ">
+        <div class="m-1">Gender</div>
+        <div class="form-check form-check-inline">
+            <div class="error-msg" *ngIf="(gender.touched || registerform.submitted) &&  gender.errors?.required">
+                Gender required
+         </div>
+        <input type="radio" class="form-check-input"value="male"  
+        [(ngModel)] ="tourist.gender" name="gender" id="male" #gender="ngModel" required>
+        <label class="form-check-label" for="male">Male</label> 
+        </div>
+        <div class="form-check form-check-inline">
+        <input type="radio" value="female" class="form-check-input" id="female" #gender="ngModel" 
+        [(ngModel)] ="tourist.gender" name="gender" requried>
+        <label class="form-check-label" for="female">Female</label> 
+    </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" id="age" placeholder="Age" (keypress)="allowOnlyNumericAge($event)"
+        [(ngModel)] ="tourist.age" name="age" required #age="ngModel" maxlength="2">
+        <div class="error-msg" *ngIf="(age.touched || registerform.submitted) &&  age.errors?.required">
+            Age required
+     </div>
+         </div>
+    </div>
+    <div class="row">
+    <div class="col mb-3">
+    <label for="fromPlace" class="form-label">FromPlace</label>
+    <input type="text" class="form-control" id="fromPlace" #fromPlace="ngModel" required placeholder="fromPlace"
+       name="fromPlace" [(ngModel)] ="tourist.fromPlace" (keypress)="allowOnlyAlphabet($event)">
+       <div class="error-msg" *ngIf="(fromPlace.touched || registerform.submitted) &&  fromPlace.errors?.required">
+        FromPlace required
+ </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+        <label for="numberofDaysVisits" class="form-label">NumberofDaysVisits</label>
+        <input type="text" class="form-control" id="numberofDaysVisits" (keypress)="allowOnlyNumeric($event)"
+       [(ngModel)] ="tourist.numberofDaysVisits" name="numberofDaysVisits" #num="ngModel" placeholder="numberofDaysVisits" required>
+       <div class="error-msg" *ngIf="(num.touched || registerform.submitted) &&  num.errors?.required">
+        numberofDaysVisits required
+ </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+<div class="d-grid">
+<button type="submit" class="btn btn-primary">Register</button>
+</div>
+</div>
+</div>
+</div>
+</form>
+
+
